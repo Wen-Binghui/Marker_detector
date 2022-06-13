@@ -1,0 +1,28 @@
+﻿D:\vs2019\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (ARsetup.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  marker_detector.cpp
+C:\Users\WenBinghui\Desktop\共享\课程-SS2022\Augmented Reality\Exercise I-20220504\marker_detector.cpp(59,23): warning C4244: '=': conversion from 'double' to '_Tp', possible loss of data
+          with
+          [
+              _Tp=float
+          ]
+C:\Users\WenBinghui\Desktop\共享\课程-SS2022\Augmented Reality\Exercise I-20220504\marker_detector.cpp(60,23): warning C4244: '=': conversion from 'double' to '_Tp', possible loss of data
+          with
+          [
+              _Tp=float
+          ]
+C:\Users\WenBinghui\Desktop\共享\课程-SS2022\Augmented Reality\Exercise I-20220504\marker_detector.cpp(199,68): warning C4244: '=': conversion from 'double' to '_Tp', possible loss of data
+          with
+          [
+              _Tp=float
+          ]
+C:\Users\WenBinghui\Desktop\共享\课程-SS2022\Augmented Reality\Exercise I-20220504\marker_detector.cpp(200,68): warning C4244: '=': conversion from 'double' to '_Tp', possible loss of data
+          with
+          [
+              _Tp=float
+          ]
+  Generating code
+  223 of 228 functions (97.8%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ARsetup.vcxproj -> D:\File_c++\AR\SetUp\Date_5_4\AR_setup1\ARsetup - 副本\x64\Release\Marker_detector.exe

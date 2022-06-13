@@ -1,0 +1,321 @@
+#include <iostream>
+#include <opencv/cv.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
+using namespace cv;
+using namespace std;
+
+#define DRAW_VERTEX 1
+#define DRAW_APRO_LINES 0
+#define DRAW_7_POINTS 0
+#define threshould_mode 0
+
+
+// List of points
+// Point 是二维点
+typedef vector<Point> One_contour; //点集：线
+// List of contours
+typedef vector<One_contour> Many_contours; // 线集
+const string stripWindow = "Strip Window";
+
+
+
+static int val = 100;
+struct MyStrip {
+	int stripeLength;
+	int nStop;
+	int nStart;
+	Point2f stripeVecX;
+	Point2f stripeVecY;
+};
+
+Mat calculate_Stripe(double dx, double dy, MyStrip& st) {
+	// Norm (euclidean distance) from the direction vector is the length (derived from the Pythagoras Theorem)
+	double diffLength = sqrt(dx * dx + dy * dy); //向量 Norm
+
+	// Length proportional to the marker size
+	st.stripeLength = (int)(0.8 * diffLength); // 整数
+
+	if (st.stripeLength < 5)
+		st.stripeLength = 5;
+
+	// Make stripeLength odd 必须奇数 (because of the shift in nStop), Example 6: both sides of the strip must have the same length XXXOXXX
+	//st.stripeLength |= 1;
+	if (st.stripeLength % 2 == 0)
+		st.stripeLength++;
+
+	// E.g. stripeLength = 5 --> from -2 to 2: Shift -> half top, the other half bottom
+	//st.nStop = st.stripeLength >> 1;
+	st.nStop = st.stripeLength / 2;
+	st.nStart = -st.nStop;
+
+	Size stripeSize;
+
+	// Sample a strip of width 3 pixels
+	stripeSize.width = 3; // 固定宽度
+	stripeSize.height = st.stripeLength;
+
+	// Normalized direction vector
+	st.stripeVecX.x = dx / diffLength;
+	st.stripeVecX.y = dy / diffLength;
+
+	// Normalized perpendicular direction vector (rotated 90degree clockwise, rotation matrix)
+	st.stripeVecY.x = st.stripeVecX.y;
+	st.stripeVecY.y = -st.stripeVecX.x;
+
+	// 8 bit unsigned char with 1 channel, gray
+	return Mat(stripeSize, CV_8UC1); // 返回一个空矩阵
+}
+int subpixSampleSafe(const Mat& pSrc, const Point2f& p) {
+	// floorf -> like int casting, but -2.3 will be the smaller number -> -3
+	// Point is float, we want to know which color does it have
+	int fx = int(floorf(p.x)); // 向下取整，15页 x y
+	int fy = int(floorf(p.y));
+
+	if (fx < 0 || fx >= pSrc.cols - 1 ||
+		fy < 0 || fy >= pSrc.rows - 1)
+		return 127;
+
+	// Slides 15
+	int px = int(256 * (p.x - floorf(p.x))); // 0-1 转为 0-256
+	int py = int(256 * (p.y - floorf(p.y)));
+
+	// Here we get the pixel of the starting point
+	unsigned char* i = (unsigned char*)((pSrc.data + fy * pSrc.step) + fx); // i 是 fy,fx像素点 指针
+
+	// Mat::step: 矩阵第一行元素的字节数
+	// Mat::data: 是数据段的首地址
+
+	// Shift 2^8
+	// Internsity
+	int a = i[0] + ((px * (i[1] - i[0])) >> 8); // i[0]就是I(y,x), i[1]=I(y,x+1), >> 8: 右移八位即除2^8
+	i += pSrc.step;
+	int b = i[0] + ((px * (i[1] - i[0])) >> 8);
+
+	// We want to return Intensity for the subpixel
+	return a + ((py * (b - a)) >> 8);
+}
+
+
+int main() {
+	
+	Mat frame;
+	Mat bframe, threshold_frame;
+	VideoCapture cap(0);
+	bool isFirstStripe = true;
+
+	if (!cap.isOpened()) // 没有摄像头
+	{
+		cap.open("D:/File_c++/AR/SetUp/Date_5_4/AR_setup1/ARsetup/MarkerMovie.MP4");
+		if (!cap.isOpened())
+		{
+			cout << "NO camera found." << endl;
+			return -1;
+		}
+	}
+	string Wname = "Frame Capture";
+	string Wname_Gray = "Frame Capture Grey";
+	Many_contours contours;
+	One_contour approxContour; //一个近似的轮廓
+
+	namedWindow(Wname_Gray, CV_WINDOW_FREERATIO); //创建灰度视频窗口
+	if (threshould_mode == 0) { // 如果用给定阈值，创建bar
+		createTrackbar("track_bar", Wname_Gray, &val, 255);
+	}
+	while (true)
+	{
+		cap >> frame;
+		if (frame.empty()) { //如果视频结束，关闭
+			cout << "Video ends." << endl;
+			break;
+		}
+		cvtColor(frame, bframe, CV_BGR2GRAY); //彩色转灰度
+		if (threshould_mode == 0) {
+			threshold(bframe, threshold_frame, (float)val, (float)255, THRESH_BINARY);
+		}
+		else {
+			adaptiveThreshold(bframe, threshold_frame, (double)255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 33, 5);
+		}
+
+		vector<Vec4i> hierarchy;
+		findContours(threshold_frame, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE); // 用阈值分割过的图片找 countours
+		/*CHAIN_APPROX_SIMPLE: 压缩水平方向，垂直方向，对角线方向的元素，只保留该方向的终点坐标，例如一个矩形轮廓只需4个点来保存轮廓信息
+
+		得到的每个contours是一个轮廓集，contours[k]是一个线
+		*/
+
+		//cout << contours[0][0] << " E" << endl; // contours[0][0] 可以取一个点（第一条线的第一个点）
+		for (size_t k = 0; k < contours.size(); k++) {
+			approxPolyDP(Mat(contours[k]), approxContour, arcLength(contours[k], true) * 0.02, true); //对指定的点集进行逼近 -> 多边形
+
+			/* Code snippet to draw reworked contours in the frame */
+			Many_contours cov, aprox;
+			cov.emplace_back(contours[k]); //原始线, ex2 没用到
+			aprox.emplace_back(approxContour); //逼近线, ex2 没用到
+			//convert it to a rectangle 
+
+			if (approxContour.size() != 4) continue; // 如果顶点数不是4，跳过
+
+			Rect r = boundingRect(approxContour); // 计算轮廓的垂直边界最小矩形，矩形是与图像上下边界平行的
+
+			// area filter
+			if (r.area() < 20 || r.area() > (frame.cols - 10) * 40) { // Max area: (frame.cols - 10) * 20
+				continue;
+			}
+#if DRAW_APRO_LINES
+			polylines(frame, approxContour, true, Scalar(0, 0, 255), 4); // 连边线
+#endif			
+			for (size_t i = 0; i < approxContour.size(); ++i) {  // approxContour.size() is 3
+				// Render the corners, 3 -> Radius, -1 filled circle
+#if DRAW_VERTEX
+				circle(frame, approxContour[i], 3, CV_RGB(0, 0, 255), -1);
+#endif
+				// Euclidic distance, 7 -> parts, both directions dx and dy 方向向量
+				double dx = ((double)approxContour[(i + 1) % 4].x - (double)approxContour[i].x) / 7.0;
+				double dy = ((double)approxContour[(i + 1) % 4].y - (double)approxContour[i].y) / 7.0;
+
+				MyStrip strip;
+				Mat imagePixelStripe = calculate_Stripe(dx, dy, strip);
+				bool isFirstStripe = true;
+
+				// First point already rendered, now the other 6 points
+				for (size_t j = 1; j < 7; ++j) {
+					// Position calculation
+					double px = approxContour[(i + 1) % approxContour.size()].x * (double)j / 7.0 + approxContour[i].x * (7.0 - (double)j) / 7.0;
+					double py = approxContour[(i + 1) % approxContour.size()].y * (double)j / 7.0 + approxContour[i].y * (7.0 - (double)j) / 7.0;
+					Point p;
+					p.x = (int)px;
+					p.y = (int)py;
+#if DRAW_7_POINTS
+					circle(frame, p, 3, CV_RGB(0, 255, 0), -1);
+#endif
+					// Columns: Loop over 3 pixels
+					for (int m = -1; m <= 1; ++m) { // -1 0 1
+						// Rows: From bottom to top of the stripe, e.g. -3 to 3
+						for (int n = strip.nStart; n <= strip.nStop; ++n) {
+							Point2f subPixel;
+
+							// m -> going over the 3 pixel thickness of the stripe, n -> over the length of the stripe, direction comes from the orthogonal vector in st
+							// Going from bottom to top and defining the pixel coordinate for each pixel belonging to the stripe
+							subPixel.x = (double)p.x + ((double)m * strip.stripeVecX.x) + ((double)n * strip.stripeVecY.x);
+							subPixel.y = (double)p.y + ((double)m * strip.stripeVecX.y) + ((double)n * strip.stripeVecY.y);
+
+							// Just for markings in the image!
+							Point p2;
+							p2.x = (int)subPixel.x;
+							p2.y = (int)subPixel.y;
+
+							// The one (purple color) which is shown in the stripe window
+							if (isFirstStripe)
+								circle(frame, p2, 1, CV_RGB(255, 0, 255), -1);
+							else
+								circle(frame, p2, 1, CV_RGB(0, 255, 255), -1);
+
+							// Combined Intensity of the subpixel
+							int pixelIntensity = subpixSampleSafe(frame, subPixel); //矩形条每个点的强度 subPixel是浮点数
+
+							// Converte from index to pixel coordinate
+							// m (Column, real) -> -1,0,1 but we need to map to 0,1,2 -> add 1 to 0..2
+							int w = m + 1;
+
+							// n (Row, real) -> add stripelenght >> 1 to shift to 0..stripeLength
+							// n=0 -> -length/2, n=length/2 -> 0 ........ + length/2
+							int h = n + (strip.stripeLength >> 1);
+
+							// Set pointer to correct position and safe subpixel intensity
+							imagePixelStripe.at<uchar>(h, w) = (uchar)pixelIntensity; // 修改值
+						}
+					}
+					//* 7.b: Use Sobel operator on stripe
+					Mat grad_y;
+					Sobel(imagePixelStripe, grad_y, CV_8UC1, 0, 1);
+
+					double maxIntensity = -1;
+					int maxIntensityIndex = 0;
+
+					// Finding the max value
+					for (int n = 0; n < strip.stripeLength - 2; ++n) {
+						if (grad_y.at<uchar>(n, 1) > maxIntensity) {
+							maxIntensity = grad_y.at<uchar>(n, 1);
+							maxIntensityIndex = n;
+						}
+					}
+					//* 7.b ends
+
+
+					//* 7.d: Find the edge location with subpixel accuracy
+					// f(x) slide 7->y0 ..y1 ..y2
+					double y0, y1, y2;
+
+					// Point before and after
+					unsigned int max1 = maxIntensityIndex - 1, max2 = maxIntensityIndex + 1;
+
+					// If the index is at the border we are out of the stripe, then we will take 0
+					// =超出范围就是0, y 是 梯度值
+					y0 = (maxIntensityIndex <= 0) ? 0 : grad_y.at<uchar>(max1, 1);
+					y1 = grad_y.at<uchar>(maxIntensityIndex, 1);
+					// If we are going out of the array of the sobel values
+					y2 = (maxIntensityIndex >= strip.stripeLength - 3) ? 0 : grad_y.at<uchar>(max2, 1);
+
+					// Formula for calculating the x-coordinate of the vertex of a parabola, given 3 points with equal distances 
+					// (xv means the x value of the vertex, d the distance between the points): 
+					// xv = x1 + (d / 2) * (y2 - y0)/(2*y1 - y0 - y2)
+
+					// d = 1 because of the normalization and x1 will be added later
+					double pos = (y2 - y0) / (4 * y1 - 2 * y0 - 2 * y2);
+
+					// What happens when there is no solution -> /0 or Number == other Number
+					// If the found pos is not a number -> there is no solution
+					if (isnan(pos)) {
+						continue;
+					}
+					// Check if there is a solution to the calculation, cool trick
+					/*if (pos != pos) {
+						// Value is not a number -> NAN
+						continue;
+					}*/
+
+					// Exact point with subpixel accuracy
+					Point2d edgeCenter;
+
+					// Where is the edge (max gradient) in the picture?
+					int maxIndexShift = maxIntensityIndex - (strip.stripeLength >> 1);
+
+					// Find the original edgepoint -> Is the pixel point at the top or bottom?
+					edgeCenter.x = (double)p.x + (((double)maxIndexShift + pos) * strip.stripeVecY.x);
+					edgeCenter.y = (double)p.y + (((double)maxIndexShift + pos) * strip.stripeVecY.y);
+
+					// Highlight the subpixel with blue color
+					circle(frame, edgeCenter, 2, CV_RGB(0, 0, 255), -1);
+
+					// Added in Sheet 3 - Ex7 (d) End *****************************************************************
+
+					// Added in Sheet 3 - Ex7 (c) Start *****************************************************************
+
+					// Draw the stripe in the image
+					if (isFirstStripe) {
+						Mat iplTmp;
+						// The intensity differences on the stripe
+						resize(imagePixelStripe, iplTmp, Size(100, 300));
+
+						//imshow(stripWindow, iplTmp);
+						isFirstStripe = false;
+					}
+				}
+
+			}
+		}
+		imshow(Wname_Gray, frame);
+
+		isFirstStripe = true;
+
+
+		//Exit
+		int key = waitKey(10);// FPS
+		if (key == 27) // Esc
+			break;
+	}
+	destroyWindow(Wname_Gray);
+
+	return 0;
+}

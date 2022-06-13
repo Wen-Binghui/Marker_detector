@@ -1,0 +1,2 @@
+D:\File_c++\AR\SetUp\Date_5_4\AR_setup1\ARsetup\x64\Release\Marker_detector.exe
+D:\File_c++\AR\SetUp\Date_5_4\AR_setup1\ARsetup - 副本\x64\Release\Marker_detector.exe

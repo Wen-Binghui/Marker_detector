@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2065effa-20c6-4b5a-afab-dc3022ad5aa5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.vs/Marker_detector_AR/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Marker_detector_AR/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Marker_detector_AR/v16/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Marker_detector_AR/v16/Browse.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Marker_detector_AR/v16/ipch/AutoPCH/1fae786b17ee6f47/MARKER_DETECTOR.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Marker_detector_AR/v16/ipch/AutoPCH/1fae786b17ee6f47/MARKER_DETECTOR.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Marker_detector_AR/v16/ipch/AutoPCH/701888348624e72d/MARKER_DETECTOR.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Marker_detector_AR/v16/ipch/AutoPCH/701888348624e72d/MARKER_DETECTOR.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARsetup.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ARsetup.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARsetup.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/ARsetup.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARsetup.vcxproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/ARsetup.vcxproj.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.exe.recipe" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.exe.recipe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.log" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.tlog/ARsetup.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.tlog/ARsetup.lastbuildstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.tlog/link.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/ARsetup.vcxproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/ARsetup.vcxproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/Source.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/Source.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/vc142.idb" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/vc142.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/vc142.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/vc142.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercise3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarkerMovie.MP4" beforeDir="false" afterPath="$PROJECT_DIR$/MarkerMovie.MP4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Marker_detector_AR.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Marker_detector_AR.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.exe.recipe" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.exe.recipe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.iobj" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.iobj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.ipdb" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.ipdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.log" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/ARsetup.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/ARsetup.lastbuildstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/ARsetup.write.1u.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/ARsetup.write.1u.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/link.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.tlog/unsuccessfulbuild" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.tlog/unsuccessfulbuild" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/ARsetup.vcxproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Release/ARsetup.vcxproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/Source.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Release/Source.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/vc142.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Release/vc142.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/temp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.exe.recipe" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.exe.recipe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.iobj" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.iobj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.ipdb" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.ipdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.log" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/ARsetup.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/ARsetup.lastbuildstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/ARsetup.write.1u.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/ARsetup.write.1u.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/link.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/ARsetup.vcxproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/ARsetup.vcxproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Exercise-1.obj" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Exercise-1.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.exe" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.exe.recipe" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.exe.recipe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.iobj" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.iobj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.ipdb" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.ipdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/Marker_detector.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/Marker_detector.lastbuildstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/Marker_detector.write.1u.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/Marker_detector.write.1u.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/link.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Marker_detector.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/NotRealMain.obj" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/NotRealMain.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/Source.obj" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/Source.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/main.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/marker_detector.obj" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/marker_detector.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Release/vc142.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Release/vc142.pdb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2AXAntCdapzh2X3awGF20Bq7VyV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2065effa-20c6-4b5a-afab-dc3022ad5aa5" name="Changes" comment="" />
+      <created>1655145729761</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655145729761</updated>
+      <workItem from="1655145731006" duration="6000" />
+    </task>
+    <servers />
+  </component>
+</project>

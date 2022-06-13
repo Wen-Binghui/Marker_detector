@@ -1,0 +1,3 @@
+﻿  Source.cpp
+Source.obj : error LNK2001: unresolved external symbol "private: void __thiscall cv::String::deallocate(void)" (?deallocate@String@cv@@AAEXXZ)
+D:\File_c++\AR\SetUp\Date_5_4\AR_setup1\ARsetup\Release\ARsetup.exe : fatal error LNK1120: 1 unresolved externals
